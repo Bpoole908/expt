@@ -38,7 +38,7 @@ EXPT_DISABLE_RUST = ast.literal_eval(os.getenv("EXPT_DISABLE_RUST") or "False")
 class build_rust_for_expt(build_rust):
 
   def run(self):
-    if not EXPT_DISABLE_RUST and get_rust_version() is None:
+    if not EXPT_DISABLE_RUST and get_rust_version(None) is None:
       from distutils.errors import DistutilsPlatformError
       raise DistutilsPlatformError(
           "Rust toolchain (cargo, rustc) not found. "
